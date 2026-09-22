@@ -1,0 +1,66 @@
+:root {
+  color-scheme: dark;
+
+  --font-display: var(--font-display-src, "Barlow Condensed"), "Arial Narrow",
+    sans-serif;
+  --font-body: var(--font-body-src, "Source Sans 3"), "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono-src, "IBM Plex Mono"), ui-monospace, monospace;
+
+  /* Sampled from the official lockup: field #1F3378, mark #FFFFFF */
+  --color-brand: #1f3378;
+  --color-brand-deep: #17265c;
+  --color-brand-mid: #27408c;
+  --color-white: #ffffff;
+
+  --color-bg: var(--color-brand);
+  --color-bg-elevated: var(--color-brand-mid);
+  --color-bg-sunken: var(--color-brand-deep);
+  --color-line: rgb(255 255 255 / 0.16);
+  --color-line-strong: rgb(255 255 255 / 0.34);
+
+  --color-brand-bright: color-mix(in srgb, var(--color-white) 38%, var(--color-brand));
+  --color-ice: var(--color-white);
+  --color-ice-soft: rgb(255 255 255 / 0.82);
+  --color-muted: rgb(255 255 255 / 0.64);
+  --color-live: #d4162c;
+  --color-success: #3d9a6a;
+  --color-warning: #d4a017;
+  --color-danger: #d4162c;
+
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  --shadow-header: 0 12px 32px rgb(10 18 48 / 0.28);
+  --shadow-focus: 0 0 0 3px rgb(255 255 255 / 0.4);
+
+  --container: 72rem;
+  --header-height: 4.75rem;
+
+  --text-body: 1.05rem;
+  --text-small: 0.875rem;
+  --text-micro: 0.72rem;
+  --leading-body: 1.6;
+
+  --motion-fast: 140ms ease;
+  --motion-med: 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 1ms;
+    --motion-med: 1ms;
+  }
+}

@@ -1,0 +1,129 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ice);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--color-ice);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-16);
+  top: -3rem;
+  z-index: 50;
+  background: var(--color-ice);
+  color: var(--color-bg);
+  padding: var(--space-8) var(--space-16);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: var(--space-16);
+}
+
+.site-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1;
+}
+
+.container {
+  width: min(calc(100% - var(--space-32)), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-64);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-12);
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.lead {
+  max-width: 40rem;
+  color: var(--color-ice-soft);
+  font-size: 1.15rem;
+}
+
+.rule {
+  height: 1px;
+  border: 0;
+  background: var(--color-line);
+  margin: var(--space-32) 0;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-32);
+  padding-block: var(--space-24);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.meta-row dt {
+  margin: 0;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.meta-row dd {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.split {
+  display: grid;
+  gap: var(--space-48);
+}
+
+@media (min-width: 880px) {
+  .split {
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: end;
+  }
+}

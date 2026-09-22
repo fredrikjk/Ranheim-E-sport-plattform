@@ -1,0 +1,35 @@
+.form {
+  display: grid;
+  gap: var(--space-12);
+  max-width: 24rem;
+}
+
+.form label {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form input {
+  min-height: 3rem;
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-sunken);
+  color: var(--color-ice);
+}
+
+.form input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.help,
+.status {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-small);
+}
+
+.status {
+  color: var(--color-ice-soft);
+}

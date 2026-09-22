@@ -1,0 +1,31 @@
+{
+  "name": "@ranheim/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "generate": "DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@localhost:5432/ranheim} prisma generate",
+    "lint": "eslint src --ignore-pattern generated",
+    "typecheck": "tsc --noEmit",
+    "test": "node -e \"process.exit(0)\"",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma",
+    "seed": "node --import tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "@ranheim/auth": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "prisma": "^6.19.3",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3"
+  }
+}

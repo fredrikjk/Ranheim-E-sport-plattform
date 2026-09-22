@@ -1,0 +1,36 @@
+export const PERMISSIONS = {
+  USERS_READ: "users.read",
+  USERS_WRITE: "users.write",
+  USERS_DELETE: "users.delete",
+  PLAYERS_READ: "players.read",
+  PLAYERS_WRITE: "players.write",
+  PLAYERS_DELETE: "players.delete",
+  COACHES_READ: "coaches.read",
+  COACHES_WRITE: "coaches.write",
+  TEAMS_READ: "teams.read",
+  TEAMS_WRITE: "teams.write",
+  TEAMS_MANAGE: "teams.manage",
+  MEMBERS_READ: "members.read",
+  MEMBERS_MANAGE: "members.manage",
+  ROLES_READ: "roles.read",
+  ROLES_MANAGE: "roles.manage",
+  STATISTICS_READ: "statistics.read",
+  STATISTICS_WRITE: "statistics.write",
+  TRAINING_READ: "training.read",
+  TRAINING_WRITE: "training.write",
+  TRAINING_MANAGE: "training.manage",
+  STREAMING_READ: "streaming.read",
+  STREAMING_MANAGE: "streaming.manage",
+  SPONSORS_READ: "sponsors.read",
+  SPONSORS_MANAGE: "sponsors.manage",
+  EVENTS_READ: "events.read",
+  EVENTS_WRITE: "events.write",
+  BOARD_READ: "board.read",
+  BOARD_MANAGE: "board.manage",
+  AUDIT_READ: "audit.read",
+  SETTINGS_MANAGE: "settings.manage",
+} as const;
+
+export type Permission = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];
+
+export const ALL_PERMISSIONS: Permission[] = Object.values(PERMISSIONS);

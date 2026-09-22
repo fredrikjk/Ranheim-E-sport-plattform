@@ -33,14 +33,14 @@ Mål: ingen stor funksjon, men et fundament det går an å bygge på.
 
 - [x] Analysere repo (tomt utover README)
 - [x] Dokumentere arkitektur, database, sikkerhet, API, deploy
-- [ ] Monorepo med pnpm og Turborepo
-- [ ] `packages/ui` med tokens
-- [ ] `packages/auth` med permission-katalog og `authorize`
-- [ ] `packages/database` med Prisma-skjema for kjerne
-- [ ] `apps/web` med profesjonelt offentlig skall
-- [ ] Tester som nekter tilgang uten permission
-- [ ] Lint, typecheck, test i rot
-- [ ] `.env.example`
+- [x] Monorepo med pnpm og Turborepo
+- [x] `packages/ui` med tokens
+- [x] `packages/auth` med permission-katalog og `authorize`
+- [x] `packages/database` med Prisma-skjema for kjerne
+- [x] `apps/web` med profesjonelt offentlig skall
+- [x] Tester som nekter tilgang uten permission
+- [x] Lint, typecheck, test i rot
+- [x] `.env.example`
 
 **Ferdig når:** `pnpm lint`, `pnpm typecheck` og `pnpm test` passerer, og
 offentlig forside kan kjøres uten database.

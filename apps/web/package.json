@@ -1,0 +1,30 @@
+{
+  "name": "@ranheim/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "test": "node -e \"process.exit(0)\""
+  },
+  "dependencies": {
+    "@ranheim/api": "workspace:*",
+    "@ranheim/auth": "workspace:*",
+    "@ranheim/config": "workspace:*",
+    "@ranheim/types": "workspace:*",
+    "@ranheim/ui": "workspace:*",
+    "next": "^16.3.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "sass": "^1.93.2",
+    "typescript": "^5.9.3"
+  }
+}

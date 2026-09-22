@@ -1,0 +1,62 @@
+:root {
+  color-scheme: dark;
+
+  --font-display: var(--font-display-src, "Barlow Condensed"), "Arial Narrow",
+    sans-serif;
+  --font-body: var(--font-body-src, "Source Sans 3"), "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono-src, "IBM Plex Mono"), ui-monospace, monospace;
+
+  --color-bg: #070b14;
+  --color-bg-elevated: #0d1424;
+  --color-bg-sunken: #05080f;
+  --color-line: rgba(232, 238, 248, 0.1);
+  --color-line-strong: rgba(232, 238, 248, 0.22);
+
+  --color-brand: #1e3378;
+  --color-brand-bright: #4d6fd4;
+  --color-ice: #e8eef8;
+  --color-ice-soft: #b7c2d6;
+  --color-muted: #8b97b0;
+  --color-live: #d4162c;
+  --color-metal: #b8a06a;
+  --color-success: #3d9a6a;
+  --color-warning: #d4a017;
+  --color-danger: #d4162c;
+
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  --shadow-header: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --shadow-focus: 0 0 0 3px rgba(77, 111, 212, 0.45);
+
+  --container: 72rem;
+  --header-height: 4.25rem;
+
+  --text-body: 1.05rem;
+  --text-small: 0.875rem;
+  --text-micro: 0.72rem;
+  --leading-body: 1.6;
+
+  --motion-fast: 140ms ease;
+  --motion-med: 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 1ms;
+    --motion-med: 1ms;
+  }
+}

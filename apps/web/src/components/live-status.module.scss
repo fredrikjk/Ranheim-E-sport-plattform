@@ -1,0 +1,63 @@
+.panel {
+  padding: var(--space-24);
+  border: 1px solid var(--color-line);
+  background:
+    linear-gradient(180deg, rgba(30, 51, 120, 0.28), transparent 55%),
+    var(--color-bg-elevated);
+}
+
+.live,
+.offlineLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-12);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.live {
+  color: var(--color-live);
+}
+
+.offlineLabel {
+  color: var(--color-muted);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-live);
+  box-shadow: 0 0 0 4px rgba(212, 22, 44, 0.18);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.game {
+  margin: var(--space-8) 0 0;
+  color: var(--color-metal);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.title {
+  margin: var(--space-16) 0 0;
+  color: var(--color-ice-soft);
+}
+
+.watch {
+  display: inline-block;
+  margin-top: var(--space-24);
+  color: var(--color-ice);
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

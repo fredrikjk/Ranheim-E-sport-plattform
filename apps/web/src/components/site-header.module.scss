@@ -1,0 +1,128 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--color-line);
+  background: rgba(7, 11, 20, 0.88);
+  backdrop-filter: blur(16px);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  min-height: var(--header-height);
+  gap: var(--space-24);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  text-decoration: none;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--color-ice);
+  border-radius: 50% / 42%;
+  background: var(--color-brand);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brandText span:first-child {
+  font-size: 1.05rem;
+}
+
+.brandText span:last-child {
+  color: var(--color-ice-soft);
+  font-size: 0.78rem;
+}
+
+.desktop {
+  display: none;
+  flex: 1;
+  justify-content: flex-end;
+  gap: var(--space-16);
+}
+
+.desktop a,
+.login,
+.menuButton {
+  color: var(--color-ice-soft);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.desktop a:hover,
+.login:hover,
+.active {
+  color: var(--color-ice);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  margin-left: auto;
+}
+
+.login {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-line-strong);
+}
+
+.menuButton {
+  background: transparent;
+  border: 0;
+  color: var(--color-ice);
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile {
+  display: grid;
+  padding: var(--space-16) var(--space-16) var(--space-24);
+  border-top: 1px solid var(--color-line);
+  background: var(--color-bg);
+}
+
+.mobile a {
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--color-line);
+  text-decoration: none;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1080px) {
+  .desktop {
+    display: flex;
+  }
+
+  .menuButton,
+  .mobile {
+    display: none;
+  }
+
+  .actions {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,263 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum MembershipStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum RoleScopeType {
+  CLUB
+  TEAM
+}
+
+enum PermissionEffect {
+  GRANT
+  DENY
+}
+
+enum AuditActorType {
+  USER
+  SYSTEM
+}
+
+model User {
+  id              String     @id @default(cuid())
+  name            String
+  displayName     String
+  phone           String?    @unique
+  email           String?    @unique
+  avatarObjectKey String?
+  status          UserStatus @default(PENDING)
+  dateOfBirth     DateTime?  @db.Date
+  locale          String     @default("nb-NO")
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  deletedAt       DateTime?
+  lastLoginAt     DateTime?
+
+  roles           UserRole[]
+  extraPermissions UserPermission[]
+  sessions        Session[]
+  otpChallenges   OtpChallenge[]
+  playerProfile   PlayerProfile?
+  coachProfile    CoachProfile?
+  teamMemberships TeamMembership[]
+  consents        Consent[]
+  auditLogs       AuditLog[]        @relation("AuditActor")
+
+  @@index([status])
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String?
+  system      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  permissions RolePermission[]
+  users       UserRole[]
+}
+
+model Permission {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+
+  roles RolePermission[]
+  users UserPermission[]
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+model UserRole {
+  id        String        @id @default(cuid())
+  userId    String
+  roleId    String
+  scopeType RoleScopeType @default(CLUB)
+  scopeId   String?
+  createdAt DateTime      @default(now())
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role          @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, roleId, scopeType, scopeId])
+  @@index([userId])
+  @@index([scopeType, scopeId])
+}
+
+model UserPermission {
+  id           String           @id @default(cuid())
+  userId       String
+  permissionId String
+  effect       PermissionEffect
+  scopeType    RoleScopeType    @default(CLUB)
+  scopeId      String?
+  createdAt    DateTime         @default(now())
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  permission   Permission       @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Session {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime  @default(now())
+  revokedAt DateTime?
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model OtpChallenge {
+  id         String    @id @default(cuid())
+  userId     String?
+  identifier String
+  channel    String
+  codeHash   String
+  attempts   Int       @default(0)
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+  user       User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([identifier, createdAt])
+}
+
+model Game {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  createdAt DateTime @default(now())
+  teams     Team[]
+}
+
+model Team {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  gameId      String?
+  description String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  game        Game?    @relation(fields: [gameId], references: [id])
+  memberships TeamMembership[]
+
+  @@index([published])
+}
+
+model TeamMembership {
+  id        String           @id @default(cuid())
+  teamId    String
+  userId    String
+  title     String?
+  status    MembershipStatus @default(ACTIVE)
+  startedAt DateTime         @default(now())
+  endedAt   DateTime?
+  team      Team             @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, userId])
+}
+
+model PlayerProfile {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  nickname  String
+  bio       String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([published])
+}
+
+model CoachProfile {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  title     String?
+  bio       String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([published])
+}
+
+model Consent {
+  id          String    @id @default(cuid())
+  userId      String
+  type        String
+  grantedAt   DateTime  @default(now())
+  withdrawnAt DateTime?
+  source      String?
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, type])
+}
+
+model AuditLog {
+  id          String         @id @default(cuid())
+  actorUserId String?
+  actorType   AuditActorType @default(USER)
+  action      String
+  targetType  String
+  targetId    String?
+  requestId   String?
+  metadata    Json?
+  createdAt   DateTime       @default(now())
+  actor       User?          @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([actorUserId, createdAt])
+  @@index([targetType, targetId])
+  @@index([createdAt])
+}
+
+model Sponsor {
+  id             String    @id @default(cuid())
+  name           String
+  url            String?
+  logoObjectKey  String?
+  tier           String
+  startsAt       DateTime?
+  endsAt         DateTime?
+  published      Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([published])
+}

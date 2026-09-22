@@ -1,0 +1,38 @@
+.footer {
+  padding-block: var(--space-64);
+  border-top: 1px solid var(--color-line);
+  background: var(--color-bg-sunken);
+  color: var(--color-ice-soft);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-48);
+}
+
+.name {
+  margin: 0 0 var(--space-16);
+  color: var(--color-ice);
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.footer nav {
+  display: grid;
+  align-content: start;
+  gap: var(--space-8);
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}

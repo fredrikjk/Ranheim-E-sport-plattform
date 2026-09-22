@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { club, publicNav, secondaryNav } from '@/content/club';
+import { BrandLogo } from './brand-logo';
 import styles from './site-footer.module.scss';
 
 export function SiteFooter() {
@@ -7,8 +8,10 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div>
+          <Link href="/" className={styles.brand}>
+            <BrandLogo className={styles.logo} />
+          </Link>
           <p className="eyebrow">{club.parent}</p>
-          <p className={styles.name}>{club.name}</p>
           <p>
             {club.address.venue}, {club.address.street}
             <br />

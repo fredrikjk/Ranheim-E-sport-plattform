@@ -10,11 +10,18 @@
   gap: var(--space-48);
 }
 
-.name {
-  margin: 0 0 var(--space-16);
-  color: var(--color-ice);
-  font-family: var(--font-display);
-  font-size: 2rem;
+.brand {
+  display: inline-block;
+  margin-bottom: var(--space-16);
+  text-decoration: none;
+}
+
+.logo {
+  display: block;
+  height: 3.4rem;
+  width: auto;
+  max-width: min(22rem, 100%);
+  object-fit: contain;
 }
 
 .footer nav {

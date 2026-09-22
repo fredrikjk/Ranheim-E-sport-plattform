@@ -45,6 +45,14 @@ export const metadata: Metadata = {
     siteName: club.name,
     title: club.name,
     description: club.summary,
+    images: [
+      {
+        url: '/brand/ranheim-esport-logo.png',
+        width: 1046,
+        height: 207,
+        alt: club.name,
+      },
+    ],
   },
   robots: {
     index: true,

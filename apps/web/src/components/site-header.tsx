@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useId, useState } from 'react';
 import { publicNav } from '@/content/club';
+import { BrandLogo } from './brand-logo';
 import styles from './site-header.module.scss';
 
 export function SiteHeader() {
@@ -15,13 +16,7 @@ export function SiteHeader() {
     <header className={styles.header}>
       <div className={`container ${styles.bar}`}>
         <Link href="/" className={styles.brand} onClick={() => setOpen(false)}>
-          <span className={styles.brandMark} aria-hidden="true">
-            R
-          </span>
-          <span className={styles.brandText}>
-            <span>Ranheim</span>
-            <span>E-sport</span>
-          </span>
+          <BrandLogo className={styles.logo} priority />
         </Link>
 
         <nav className={styles.desktop} aria-label="Hovedmeny">

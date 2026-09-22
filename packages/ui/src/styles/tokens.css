@@ -6,19 +6,23 @@
   --font-body: var(--font-body-src, "Source Sans 3"), "Segoe UI", sans-serif;
   --font-mono: var(--font-mono-src, "IBM Plex Mono"), ui-monospace, monospace;
 
-  --color-bg: #070b14;
-  --color-bg-elevated: #0d1424;
-  --color-bg-sunken: #05080f;
-  --color-line: rgba(232, 238, 248, 0.1);
-  --color-line-strong: rgba(232, 238, 248, 0.22);
+  /* Sampled from the official lockup: field #1F3378, mark #FFFFFF */
+  --color-brand: #1f3378;
+  --color-brand-deep: #17265c;
+  --color-brand-mid: #27408c;
+  --color-white: #ffffff;
 
-  --color-brand: #1e3378;
-  --color-brand-bright: #4d6fd4;
-  --color-ice: #e8eef8;
-  --color-ice-soft: #b7c2d6;
-  --color-muted: #8b97b0;
+  --color-bg: var(--color-brand);
+  --color-bg-elevated: var(--color-brand-mid);
+  --color-bg-sunken: var(--color-brand-deep);
+  --color-line: rgb(255 255 255 / 0.16);
+  --color-line-strong: rgb(255 255 255 / 0.34);
+
+  --color-brand-bright: color-mix(in srgb, var(--color-white) 38%, var(--color-brand));
+  --color-ice: var(--color-white);
+  --color-ice-soft: rgb(255 255 255 / 0.82);
+  --color-muted: rgb(255 255 255 / 0.64);
   --color-live: #d4162c;
-  --color-metal: #b8a06a;
   --color-success: #3d9a6a;
   --color-warning: #d4a017;
   --color-danger: #d4162c;
@@ -39,8 +43,8 @@
   --radius-lg: 8px;
   --radius-pill: 999px;
 
-  --shadow-header: 0 12px 40px rgba(0, 0, 0, 0.35);
-  --shadow-focus: 0 0 0 3px rgba(77, 111, 212, 0.45);
+  --shadow-header: 0 12px 32px rgb(10 18 48 / 0.28);
+  --shadow-focus: 0 0 0 3px rgb(255 255 255 / 0.4);
 
   --container: 72rem;
   --header-height: 4.75rem;

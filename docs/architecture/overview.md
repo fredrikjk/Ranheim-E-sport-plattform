@@ -33,7 +33,7 @@ Klubbfakta som styrer produkt og personvern:
 - ca. 70 medlemmer, barn og unge fra Trondheim
 - visjon: *Flest mulig, lengst mulig*
 - klubbfarger i allianseidrettslagets lov: blå bunn, hvit kant, initialer R.I.L.
-- Ranheim Fotball bruker `#1E3378` / `#FFFFFF`
+- Offisiell e-sportlogo bruker `#1F3378` / `#FFFFFF`
 - adresse: Krafthallen, Ranheimsfjæra 44, 7055 RANHEIM
 - org.nr. 975 605 140, `post@ril.no`
 
@@ -287,9 +287,9 @@ Visuell retning: seriøs norsk idrettsklubb med e-sport som gren. Ikke
 generisk SaaS, ikke neon-gaming.
 
 - mørk marinebase
-- klubbblå `#1E3378` som merkevare
-- høykontrast is-hvit tekst
-- diskret metallisk aksent, ikke «gull-gradient»
+- klubbblå `#1F3378` som merkevare og sidebakgrunn
+- logo-hvit `#FFFFFF` som tekst og kontrast
+- ingen gull- eller neonaksenter utenfor logoen
 - kondenserte overskrifter, lesbar brødtekst
 - LIVE som presist signal, ikke pynt
 

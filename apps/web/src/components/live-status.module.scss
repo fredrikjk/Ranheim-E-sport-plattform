@@ -1,9 +1,7 @@
 .panel {
   padding: var(--space-24);
   border: 1px solid var(--color-line);
-  background:
-    linear-gradient(180deg, rgba(30, 51, 120, 0.28), transparent 55%),
-    var(--color-bg-elevated);
+  background: var(--color-brand-mid);
 }
 
 .live,
@@ -43,7 +41,7 @@
 
 .game {
   margin: var(--space-8) 0 0;
-  color: var(--color-metal);
+  color: var(--color-muted);
   font-family: var(--font-mono);
   font-size: var(--text-small);
 }

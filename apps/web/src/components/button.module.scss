@@ -25,12 +25,13 @@
 }
 
 .primary {
-  background: var(--color-ice);
-  color: var(--color-bg);
+  background: var(--color-white);
+  color: var(--color-brand);
 }
 
 .primary:hover:not(:disabled) {
-  background: #ffffff;
+  background: var(--color-white);
+  color: var(--color-brand-deep);
 }
 
 .ghost {
